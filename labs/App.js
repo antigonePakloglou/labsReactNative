@@ -1,19 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from 'react';
+import { Button, StyleSheet, Text, View } from 'react-native';
 
 export default function App() {
+
+
+  const [cadreText, setCadreText] = useState(null);
+
+  const handleClick = () => {
+    setCadreText("Salut je m'appelle Antigone et je suis développeur !");
+  
+  }
+
+  const renderCadre = cadreText && (
+    <View style={[styles.cadre]}>
+    <Text style={styles.text}>{cadreText}</Text>
+  </View>
+  )
+
   return (
     <View style={styles.container}>
-    <View style={styles.carreBlock}>
-      <View style={[styles.carre ,styles.carreOne]}>
-          <Text style={styles.carreText}>Carré 1</Text>
-      </View>
-      <View style={[styles.carre ,styles.carreTwo]}>
-        <Text style={styles.carreText}>Carré 2</Text>
-      </View>
-      <View style={[styles.carre ,styles.carreThree]}>
-        <Text style={styles.carreText}>Carré 3</Text>
-      </View>
-    </View>
+      <Button title='Présentez vous' onPress={handleClick}></Button>
+     {renderCadre}
     </View>
   );
 }
@@ -26,35 +33,21 @@ const styles = StyleSheet.create({
     //horizontal
     alignItems: 'center'
   },
-  carre: {
+  cadre: {
+    //pour positionner le text on applique sur le parent
+    backgroundColor: 'pink',
+    width: '80%',
+    height: 250,
+    borderRadius: 20,
+    alignItems: 'center',
     justifyContent: 'center',
-    alignItems: 'center'
+    paddingHorizontal: 20,
+    marginTop: 20
   },
-  carreBlock: {
-    //par defaut on est en affichage colone
-    flex: 1,
-    width: '100%',
-    justifyContent: 'space-evenly'
-  },
-
-  carreOne:{
-    flex: 1,
-    backgroundColor: 'pink'
-  },
-
-  carreTwo: {
-    flex: 2,
-    backgroundColor: 'skyblue'
-  },
-
-  carreThree: {
-    flex: 3,
-    backgroundColor: 'purple'
-  },
-
-  carreText: {
+  text: {
     fontWeight: 'bold',
-    color: 'white'
-  },
+    textAlign: 'center'
+  }
+
 
 });
