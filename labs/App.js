@@ -1,27 +1,16 @@
-import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import CustomButton from './src/component/CustomButton';
+
+import { StyleSheet, View, Text, Image } from 'react-native';
+
 
 export default function App() {
 
 
-  const [cadreText, setCadreText] = useState(null);
-
-  const handleClick = () => {
-    setCadreText("Salut je m'appelle Antigone et je suis développeur !");
-  
-  }
-
-  const renderCadre = cadreText && (
-    <View style={[styles.cadre]}>
-    <Text style={styles.text}>{cadreText}</Text>
-  </View>
-  )
-
   return (
     <View style={styles.container}>
-     {renderCadre}
-     <CustomButton title={"Présentez vous"} onPress={handleClick}/>
+      <Text>Image depuis le télephone</Text>
+      <Image style={styles.img} source={require('./assets/images/img1.jpg')} />
+      <Text>Image depuis internet</Text>
+      <Image style={styles.img} source={{uri: "https://th.bing.com/th/id/R.0e4a004c119aa6af10ef198adfbd0d0e?rik=b%2b76nu5Ou%2bcw6A&pid=ImgRaw&r=0"}} />
     </View>
   );
 }
@@ -34,21 +23,12 @@ const styles = StyleSheet.create({
     //horizontal
     alignItems: 'center'
   },
-  cadre: {
-    //pour positionner le text on applique sur le parent
-    backgroundColor: 'pink',
-    width: '80%',
-    height: 250,
-    borderRadius: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-    marginTop: 20
+  img: {
+    width: 300,
+    height: 300,
+    resizeMode: 'contain',
+    backgroundColor: 'red'
   },
-  text: {
-    fontWeight: 'bold',
-    textAlign: 'center'
-  }
 
 
 });
