@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import CustomButton from './src/component/CustomButton';
 
 export default function App() {
 
@@ -19,8 +20,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Button title='Présentez vous' onPress={handleClick}></Button>
      {renderCadre}
+     <CustomButton title={"Présentez vous"} onPress={handleClick}/>
     </View>
   );
 }
