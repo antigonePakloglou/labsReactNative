@@ -27,26 +27,28 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   carre: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   carreBlock: {
+    //par defaut on est en affichage colone
     flex: 1,
-    flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly'
   },
 
   carreOne:{
+    flex: 1,
     backgroundColor: 'pink'
   },
 
   carreTwo: {
+    flex: 2,
     backgroundColor: 'skyblue'
   },
 
   carreThree: {
+    flex: 3,
     backgroundColor: 'purple'
   },
 
