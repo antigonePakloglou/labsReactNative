@@ -26,15 +26,13 @@ const styles = StyleSheet.create({
     //horizontal
     alignItems: 'center'
   },
-
   carre: {
-    width: 100,
-    height: 100,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
   },
-
   carreBlock: {
+    flex: 1,
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-evenly'
