@@ -1,28 +1,38 @@
 
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import CustomTextInput from '../CustomTextInput';
 import Header from '../Header';
+import { useState } from 'react';
+import CustomButton from '../CustomButton';
 
 
-export default function LoginScreen() {
+const LoginScreen = (props) => {
 
-
-  //ush raccourci clavier
+//ush raccourci clavier
+const [username, setUsername] = useState("");
+const [password, setPassword] = useState("");
 
 
   return (
     <View style={styles.container}>
-        <Header title="Todo App"/>
+        <Header title="Antigone Todo App"/>
         <View style={styles.inputBlock}>
-            <CustomTextInput placeholder = {"Username"} style={styles.input}  />
+            <CustomTextInput 
+                value={username}
+                placeholder = {"Username"} style={styles.input}  
+                onChangeText={(text) => setUsername(text)}
+            />
         </View>
         <View style={styles.inputBlock}>
             <CustomTextInput 
-            placeholder = {"Password"} 
-            secureTexteEntry
-            style={styles.input} />
+                value= {password}
+                placeholder = {"Password"} 
+                style={styles.input} 
+                onChangeText={(password) => setPassword(password)}
+            />
         </View>
-      <Button title="Connexion" onPress={()=> {}} />
+
+      <CustomButton title="Connexion" onPress={() => props.onLogin(username, password)} />
     </View>
   );
 }
@@ -30,18 +40,20 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-   
   },
   inputBlock: {
-    width: '80%',
+    width: '100%',
+    marginTop: 40,
     justifyContent: 'center', 
     alignItems: 'center',
-    marginTop: 40
    
   },
   input : {
-    backgroundColor: 'pink',
+    backgroundColor: '#F743D4',
     borderColor: 'black',
   }
  
 });
+
+
+export default LoginScreen

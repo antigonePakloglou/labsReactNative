@@ -1,11 +1,12 @@
 
-import { StyleSheet, View, TextInput, Button, Text, Alert, FlatList, Pressable } from 'react-native';
+import { StyleSheet, View, Text, Alert, FlatList, Pressable } from 'react-native';
 import { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons'; 
 import CustomTextInput from '../CustomTextInput';
+import CustomButton from '../CustomButton';
+import Header from '../Header';
 
 export default function TodoScreen() {
-
 
   //ush raccourci clavier
   const [todo, setTodo] = useState();
@@ -17,7 +18,6 @@ export default function TodoScreen() {
   
     ]
   );
-
 
   const addTodo = () => {
     if(todo === ""){
@@ -31,7 +31,7 @@ export default function TodoScreen() {
 
   const deleteTodo = (item) => {
     Alert.alert(
-      "Suppression", "Étes vous sur de vouloir supprimer ?" + item.name,
+      "Suppression", "Voulez-vous supprimer " + item.name + " ?",
         [
           {
             text : 'Oui',
@@ -48,6 +48,7 @@ export default function TodoScreen() {
 
   return (
     <View style={styles.container}>
+      <Header title="Antigone Todo App"/>
       <View style={styles.inputBlock}>
         <CustomTextInput 
           placeholder='Saisissez une tache'
@@ -56,7 +57,7 @@ export default function TodoScreen() {
         />
       </View> 
       <View style={styles.inputBlock}>
-      <Button 
+      <CustomButton 
         title='Valider'
         onPress={addTodo}
       />
@@ -68,7 +69,7 @@ export default function TodoScreen() {
           <View style = {styles.todoBlock}>
             <Text style={styles.todoText}>{item.name}</Text>
             <Pressable onPress={() => deleteTodo(item)}>
-              <AntDesign name="closecircleo" size={24} color="black" color='red'/>
+              <AntDesign name="closecircleo" size={24} color="black" color='white'/>
             </Pressable>
            
           </View>
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
   marginTop: 20,
   },
   todoBlock : {
-    backgroundColor : 'skyblue',
+    backgroundColor : '#F743D4',
     marginHorizontal: 20,
     marginVertical: 20,
     padding: 10,
