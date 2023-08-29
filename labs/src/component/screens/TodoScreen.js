@@ -12,9 +12,9 @@ export default function TodoScreen() {
   const [todo, setTodo] = useState();
   const [todos, setTodos] = useState(
     [
-      {id: '1', name : 'Todo 1'},
-      {id: '2', name : 'Todo 2'},
-      {id: '3', name : 'Todo 3'},
+      {id: '1', name : 'Sortir le chien'},
+      {id: '2', name : 'Faire le TP'},
+      {id: '3', name : 'Soutenance oral'},
   
     ]
   );

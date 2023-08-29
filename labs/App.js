@@ -12,6 +12,7 @@ export default function App() {
   //on affiche la page de login par defaut
   const [showLoginScreen, setShowLoginScreen] = useState(true);
 
+  //vérification logins renseignés avec ceux enregistreés
   const handleLogin = (username, password) => {
     var found = false;
     for(var user of Users){
@@ -25,10 +26,10 @@ export default function App() {
       Alert.alert("Erreur", "Username et/ou mot de passe incorrect !");
     }
 }
-
+  //si on est pas déja loggé
   if(showLoginScreen){
     return (
-    <LoginScreen onLogin={handleLogin}/>
+      <LoginScreen onLogin={handleLogin}/>
     ); 
   }
   return (
@@ -40,6 +41,4 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  
-
 });

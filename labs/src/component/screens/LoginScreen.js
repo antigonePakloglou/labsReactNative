@@ -28,6 +28,7 @@ const [password, setPassword] = useState("");
                 value= {password}
                 placeholder = {"Password"} 
                 style={styles.input} 
+                secureTextEntry
                 onChangeText={(password) => setPassword(password)}
             />
         </View>
@@ -46,14 +47,11 @@ const styles = StyleSheet.create({
     marginTop: 40,
     justifyContent: 'center', 
     alignItems: 'center',
-   
   },
   input : {
     backgroundColor: '#F743D4',
     borderColor: 'black',
   }
- 
 });
-
 
 export default LoginScreen

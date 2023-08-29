@@ -1,9 +1,9 @@
 export default [
     {
         id: 1,
-        name: "Campus Estiam",
-        username : "estiam",
-        password : "react",
+        name: "Administrateur",
+        username : "Antigone",
+        password : "Anti",
         token: "user1"
     },
     {
