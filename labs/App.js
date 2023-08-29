@@ -49,6 +49,14 @@ export default function App() {
     }
 }
 
+const handleLogout = async ()=>{
+  await removeDataFromStorage(userTokenKey).then((status)=>{
+    if(status){
+      setShowLoginScreen(true);
+    } 
+  });
+}
+
   if(loading){
     return (
       <View style = {styles.loadingContainer}>
@@ -60,11 +68,11 @@ export default function App() {
   //si on est pas déja loggé
   if(showLoginScreen){
     return (
-      <LoginScreen onLogin={handleLogin}/>
+      <LoginScreen isLogged={showLoginScreen} onLogin={handleLogin}/>
     ); 
   }
   return (
-      <TodoScreen />
+      <TodoScreen isLogged={showLoginScreen} logoutUser={handleLogout}/>
   );
 }
 

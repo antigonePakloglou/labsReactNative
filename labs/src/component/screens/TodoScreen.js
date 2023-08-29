@@ -5,8 +5,9 @@ import { AntDesign } from '@expo/vector-icons';
 import CustomTextInput from '../CustomTextInput';
 import CustomButton from '../CustomButton';
 import Header from '../Header';
+import useStorage from '../hooks/useStorage';
 
-export default function TodoScreen() {
+export default function TodoScreen(props) {
 
   //ush raccourci clavier
   const [todo, setTodo] = useState();
@@ -18,6 +19,7 @@ export default function TodoScreen() {
   
     ]
   );
+  const {setDataInStorage} = useStorage();
 
   const addTodo = () => {
     if(todo === ""){
@@ -48,7 +50,7 @@ export default function TodoScreen() {
 
   return (
     <View style={styles.container}>
-      <Header title="Antigone Todo App"/>
+      <Header isLogged={props.isLogged} logout={props.logoutUser} title="Antigone Todo App"/>
       <View style={styles.inputBlock}>
         <CustomTextInput 
           placeholder='Saisissez une tache'
@@ -76,7 +78,6 @@ export default function TodoScreen() {
           )}
           keyExtractor={(item, index) => item.id}
       />
-    
     </View>
   );
 }

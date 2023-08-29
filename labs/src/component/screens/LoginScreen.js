@@ -15,7 +15,7 @@ const [password, setPassword] = useState("");
 
   return (
     <View style={styles.container}>
-        <Header title="Antigone Todo App"/>
+        <Header isLogged={props.isLogged} title="Antigone Todo App"/>
         <View style={styles.inputBlock}>
             <CustomTextInput 
                 value={username}

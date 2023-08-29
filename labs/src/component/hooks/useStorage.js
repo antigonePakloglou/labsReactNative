@@ -20,9 +20,20 @@ const useStorage = () => {
           return null;
         }
       };
+
+
+      removeDataFromStorage = async (key) => {
+        try {
+            await AsyncStorage.removeItem(key)
+        } catch(e){
+            return null;
+        }
+      };
+
       return {
         setDataInStorage,
-        getDataFromStorage
+        getDataFromStorage,
+        removeDataFromStorage
       }
 }
 
