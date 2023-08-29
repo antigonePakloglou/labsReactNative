@@ -69,7 +69,7 @@ export default function TodoScreen() {
           <View style = {styles.todoBlock}>
             <Text style={styles.todoText}>{item.name}</Text>
             <Pressable onPress={() => deleteTodo(item)}>
-              <AntDesign name="closecircleo" size={24} color="black" color='white'/>
+              <AntDesign name="closecircleo" size={24} color='white'/>
             </Pressable>
            
           </View>
